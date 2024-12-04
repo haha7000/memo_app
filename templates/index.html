@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메모장</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <h1>메모장</h1>
+    <form action="/add" method="POST">
+        <input type="text" name="memo" placeholder="메모를 입력하세요" required>
+        <button type="submit">추가</button>
+    </form>
+    <ul>
+        {% for memo in memos %}
+        <li>
+            {{ memo }}
+            <a href="/delete/{{ loop.index0 }}">삭제</a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
